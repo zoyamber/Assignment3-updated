@@ -548,7 +548,8 @@ Our next task will be to create a load balancer so we can balance traffic betwee
 
 **Step 5:** Create a name, and select the green `Create Load Balancer` button
 
- > [!NOTE] To verify everything was done successfully, it should look like the image below:
+ > [!NOTE] 
+ > To verify everything was done successfully, it should look like the image below:
 
 ![Screenshot] <img src = "./Assets/droplets.png">
 
@@ -562,51 +563,51 @@ Our next task will be to create a load balancer so we can balance traffic betwee
 
 **Step 1:**  Once you have completed part 1 of the assignment, you can clone the **updated** starter code with this command: 
 
-`
+```
 git clone https://git.sr.ht/~nathan_climbs/2420-as3-p2-start
-`
+```
 
 **Step 2:** Use this command to move `generate_index` to `/var/lib/webgen/bin/` : 
 
-`
+```
 sudo mv 2420-as3-p2-start/generate_index /var/lib/webgen/bin/
-`
+```
 
 
 **Step 3:**  Next, use this command to give executable permissions:
 
-`
+```
 sudo chmod +x /var/lib/webgen/bin/generate_index
-`
+```
 
 
 **Step 4:** Use this command to create the **documents** directory
 
-`
+```
 sudo mkdir -p /var/lib/webgen/documents
-`
+```
 
 **Step 5:** Now we want to make two files inside of the documents directory. Use these commands:
 
-`
+```
 sudo touch /var/lib/webgen/documents/file-one
-`
+```
 
-`
+```
 sudo touch /var/lib/webgen/documents/file-two
-`
+```
 
 **Step 6:** Create an index.html file with this command:
 
-`
+```
 sudo touch /var/lib/webgen/HTML/index.html
-`
+```
 
 **Step 7:** Set ownership using this command:
 
-`
+```
 sudo chown -R webgen:webgen /var/lib/webgen
-`
+```
 
 
 ## **Task 4:** Update your server configuration
