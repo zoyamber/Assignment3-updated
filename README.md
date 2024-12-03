@@ -493,11 +493,16 @@ The first task is to create two new digital ocean droplets with the tag `web`. T
 
 **Step 2:** Next, press the blue `Create Droplet` button on the right of the screen
 
+![Screenshot] <img src = "./Assets/create.png">
+
 
 **Step 3:** When Navigating too choose region, select `San Franciscon`, And make sure `DataCenter 3. SFO3` is selected
 
+![Screenshot] <img src = "./Assets/sanfran.png">
 
 **Step 4:** Next, when choosing an image select custom image and choose `Arch-Linux-x84_64-cloudimg-20240901.259602.qcow2`
+
+![Screenshot] <img src = "./Assets/arch.png">
 
 
 **Step 5:** You may select select basic droplet size, along with Regular CPU option and $6 / mo
@@ -507,6 +512,8 @@ The first task is to create two new digital ocean droplets with the tag `web`. T
 
 
 **Step 7:** Under Quantity Select `2 Droplets`, and name your Droplets `Arch-Linux-1` and `Arch-Linux-2`
+
+![Screenshot] <img src = "./Assets/web.png">
 
 **Step 8:** Lastly, under tags, type in the tag `web` and press the blue `Create Droplet` button
 
@@ -528,6 +535,7 @@ Our next task will be to create a load balancer so we can balance traffic betwee
 
 **Step 1:** Find and select the `create load balancer` button
 
+![Screenshot] <img src = "./Assets/load.png">
 
 **Step 2:** Now we're going to configure the load balancer to meet these requirements:
 
