@@ -20,8 +20,8 @@ The purpose of this assignment is to write a Bash script that will generate an i
 
 1. **Task 2:** [Create Load Balancer](#Task-2:-Creating-a-load-balancer)
 1. **Task 3:** [Update Starter Code](#Task-3:-Clone-the-Updated-Starter-Code)
-1. **Task 4:** 
-1. **Task 5:** 
+1. **Task 4:** [Update your server configuration](#Task-4:-Update-your-server-configuration)
+1. **Task 5:**
 
 
 ## Task One: Setting up user and directories
@@ -236,7 +236,7 @@ sudo nvim /etc/nginx/nginx.conf
 
 It should look like this:
 
-![Screenshot] <img src = "./imgtwo.png">
+![Screenshot] <img src = "./Assets/imgtwo.png">
 
 
 **Step 3:** Configure user
@@ -323,7 +323,7 @@ include /etc/nginx/sites-enabled/*.conf;
 
 it should look like this:
 
-![Screenshot] <img src = "./imgthree.png">
+![Screenshot] <img src = "./Assets/imgthree.png">
 
 
 **Step 9:** Check for errors
@@ -469,7 +469,7 @@ http://146.190.36.50/
 
 the output should look something like this:
 
-![Screenshot] <img src = "./imgfive.png">
+![Screenshot] <img src = "./Assets/imgfive.png">
 
 
 
@@ -516,7 +516,7 @@ The first task is to create two new digital ocean droplets with the tag `web`. T
  > A green dot should be beside both the names.
 
 
-![Screenshot] <img src = "./assets/img1.png">
+![Screenshot] <img src = "./Assets/img1.png">
 
 
 
@@ -550,32 +550,66 @@ Our next task will be to create a load balancer so we can balance traffic betwee
 
  > [!NOTE] To verify everything was done successfully, it should look like the image below:
 
-![Screenshot] <img src = "./assets/droplets.png">
+![Screenshot] <img src = "./Assets/droplets.png">
 
 
 
 ## **Task 3:** Clone the Updated Starter Code
 
- > [!CAUTION] Before continuing with this next part, it is **Crucial** that you repeat part 1 of this assignment for both your droplets. You can refrence to it above.
+ > [!IMPORTANT] 
+ > Before continuing with this next part, it is **Crucial** that you repeat part 1 of this assignment for both your droplets. You can refrence to it above.
 
 
-**Step 1:**
+**Step 1:**  Once you have completed part 1 of the assignment, you can clone the **updated** starter code with this command: 
+
+`
+git clone https://git.sr.ht/~nathan_climbs/2420-as3-p2-start
+`
+
+**Step 2:** Use this command to move `generate_index` to `/var/lib/webgen/bin/` : 
+
+`
+sudo mv 2420-as3-p2-start/generate_index /var/lib/webgen/bin/
+`
 
 
-**Step 2:**
+**Step 3:**  Next, use this command to give executable permissions:
+
+`
+sudo chmod +x /var/lib/webgen/bin/generate_index
+`
 
 
-**Step 3:**
+**Step 4:** Use this command to create the **documents** directory
+
+`
+sudo mkdir -p /var/lib/webgen/documents
+`
+
+**Step 5:** Now we want to make two files inside of the documents directory. Use these commands:
+
+`
+sudo touch /var/lib/webgen/documents/file-one
+`
+
+`
+sudo touch /var/lib/webgen/documents/file-two
+`
+
+**Step 6:** Create an index.html file with this command:
+
+`
+sudo touch /var/lib/webgen/HTML/index.html
+`
+
+**Step 7:** Set ownership using this command:
+
+`
+sudo chown -R webgen:webgen /var/lib/webgen
+`
 
 
-**Step 4:**
-
-
-**Step 5:**
-
-
-**Step 6:**
-
+## **Task 4:** Update your server configuration
 
 
 ## **Refrences**
