@@ -620,6 +620,64 @@ sudo chown -R webgen:webgen /var/lib/webgen
 
 ## **Task 4:** Update your server configuration
 
+**Step 1:** First we will update our server block for handling documents requests. 
+
+use this command to open the configuration file:
+
+```
+sudo vim /etc/nginx/sites-available/webgen.conf
+```
+
+**Step 2:** Once opened, edit the configuration file and add these requirements:
+
+```
+server {
+      listen 80;
+      listen [::]:80;
+
+      server_name localhost.webgen;
+
+      location / {
+           root /var/lib/webgen/HTML;
+           index index.html;
+           try_files $uri $uri/ =404;
+      }
+
+      # Handle /documents/ requests
+      location /documents {
+           alias /var/lib/webgen/documents/;
+           autoindex on;
+           autoindex_exact_size off;
+           autoindex_localtime on;
+           try_files $uri $uri/ =404;
+      }
+}
+```
+
+
+**Step 3:**
+
+
+**Step 4:**
+
+
+**Step 5:**
+
+
+**Step 6:**
+
+
+**Step 7:**
+
+
+**Step 8:**
+
+
+**Step 9:**
+
+
+**Step 10:**
+
 
 ## **Refrences**
 
