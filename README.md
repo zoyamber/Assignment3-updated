@@ -7,21 +7,21 @@ The purpose of this assignment is to write a Bash script that will generate an i
 
 ## **Table of Contents**
 ## Part One
-1. **Task 1:** [Setting up a system user with directories](#Task-One:-Setting-up-user-and-directories)
+1. **Task 1:** [Setting up a system user with directories](#task-one-setting-up-user-and-directories)
 
 2. **Task 2:** 
-[Creating and configuring systemd service and scripts](#Task-Two:-Creating-and-configuring-systemd-service-and-scripts)
-3. **Task 3:** [Configuring Nginx](#Task-Three:-Configuring-Nginx)
-4. **Task 4:** [Installing and configuring ufw for ssh and HTTP](#Task-Four:-Installing-and-configuring-ufw-for-ssh-and-HTTP)
-5. **Task 5:**  [Verifying that the System Information page is working properly](#Task-Five:-Verification)
+[Creating and configuring systemd service and scripts](#task-two-creating-and-configuring-systemd-service-and-scripts)
+3. **Task 3:** [Configuring Nginx](#task-three-configuring-nginx)
+4. **Task 4:** [Installing and configuring ufw for ssh and HTTP](#task-four-installing-and-configuring-ufw-for-ssh-and-http)
+5. **Task 5:**  [Verifying that the System Information page is working properly](#task-five-verification)
 
 ## Part Two
-1. **Task 1:** [Server Setup](#Task-1:-Create-two-new-digital-ocean-droplets-running-Arch-Linux)
+1. **Task 1:** [Server Setup](#task-one-create-two-new-digital-ocean-droplets-running-arch-Linux)
 
-1. **Task 2:** [Create Load Balancer](#Task-2:-Creating-a-load-balancer)
-1. **Task 3:** [Update Starter Code](#Task-3:-Clone-the-Updated-Starter-Code)
-1. **Task 4:** [Update your server configuration](#Task-4:-Update-your-server-configuration)
-1. **Task 5:**
+1. **Task 2:** [Create Load Balancer](#task-two-creating-a-load-balancer)
+1. **Task 3:** [Update Starter Code](#task-three-clone-the-updated-starter-code)
+1. **Task 4:** [Update your server configuration](#task-four-update-your-server-configuration)
+1. **Task 5:** [Verification](#task-five-verification)
 
 
 ## Task One: Setting up user and directories
@@ -483,7 +483,7 @@ the output should look something like this:
 
 In this part of the assignment, we will build upon the skills learned in part 1 by deploying two new servers with enhanced configurations. This will allow you to deepen your understanding of web configuration, system administration, and load balancing.
 
-## **Task 1:** Create two new digital ocean droplets running Arch Linux
+## **Task One:** Create Two New Digital Ocean Droplets Running Arch Linux
 
 The first task is to create two new digital ocean droplets with the tag `web`. These tags will be used when you setup your load balancer.
 
@@ -527,7 +527,7 @@ The first task is to create two new digital ocean droplets with the tag `web`. T
 
 
 
-## **Task 2:** Creating a load balancer
+## **Task Two:** Creating a load balancer
 
 
 Our next task will be to create a load balancer so we can balance traffic between the two servers we created in step 1.
@@ -563,7 +563,7 @@ Our next task will be to create a load balancer so we can balance traffic betwee
 
 
 
-## **Task 3:** Clone the Updated Starter Code
+## **Task Three:** Clone the Updated Starter Code
 
  > [!IMPORTANT] 
  > Before continuing with this next part, it is **Crucial** that you repeat part 1 of this assignment for both your droplets. You can refrence to it above.
@@ -618,7 +618,10 @@ sudo chown -R webgen:webgen /var/lib/webgen
 ```
 
 
-## **Task 4:** Update your server configuration
+## **Task Four:** Update your server configuration
+
+ > [!IMPORTANT] 
+ > Do this task twice for each of your server droplets
 
 **Step 1:** First we will update our server block for handling documents requests. 
 
@@ -654,29 +657,67 @@ server {
 }
 ```
 
-
-**Step 3:**
-
-
-**Step 4:**
-
-
-**Step 5:**
+**Explanation:**
+- `location /documents`: This block specifies the /documentsbURL path
+- `alias`: replaces URL path with directory path
+- `autoindex on;` : if no index.html file exists, it will enable directory listing
+- `autoindex_exact_size off;`: when this is off, it will display files in human readable format
+- `autoindex_localtime on;` : Will display file timestamp with user local timezone
 
 
-**Step 6:**
+
+**Step 3:** Test for syntax errors with this command:
+
+```
+sudo nginx -t
+```
+
+**Step 4:** Lastly, run these three commands:
+
+```
+sudo systemctl daemon-reload
+sudo systemctl start nginx.service
+sudo systemctl enable nginx.service
+```
 
 
-**Step 7:**
+## **Task Five:** Verification
+
+Now that we have successfully configured both of our servers, We will want to verify that the two new droplets are working correctly and that the load balancer is distributing the traffic
 
 
-**Step 8:**
+**Step 1:** Open your digital ocean account and locate your load balancer.
+
+You will want to locate the IP address which should be found here:
+
+![Screenshot] <img src = "./Assets/IP.png">
 
 
-**Step 9:**
+**Step 2:** Copy the IP address and open a web browser and type the following:
+
+```
+http://*load-balancer-IP-address*
+```
+Your output should look like this:
+
+![Screenshot] <img src = "./Assets/sysinfo.png">
+
+**Step 3:** Now, we want to go to the documents directory to verify both the files are present
+
+Use this:
 
 
-**Step 10:**
+```
+http://*load-balancer-IP-address*/documents
+```
+
+The output should look like this:
+
+![Screenshot] <img src = "./Assets/documents.png">
+
+## Congratulations!
+
+you have correctly and successfully set up a load balancer, configured two droplets and serers, and taken measures to ensure that your servers are running correctly!
 
 
 ## **Refrences**
