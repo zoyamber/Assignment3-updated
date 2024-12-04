@@ -658,7 +658,7 @@ server {
 ```
 
 **Explanation:**
-- `location /documents`: This block specifies the /documentsbURL path
+- `location /documents`: This block specifies the /documents URL path
 - `alias`: replaces URL path with directory path
 - `autoindex on;` : if no index.html file exists, it will enable directory listing
 - `autoindex_exact_size off;`: when this is off, it will display files in human readable format
@@ -717,7 +717,7 @@ The output should look like this:
 
 ## Congratulations!
 
-you have correctly and successfully set up a load balancer, configured two droplets and serers, and taken measures to ensure that your servers are running correctly!
+you have correctly and successfully set up a load balancer, configured two droplets and servers, and taken measures to ensure that your servers are running correctly!
 
 
 ## **Refrences**
